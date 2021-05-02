@@ -79,6 +79,7 @@ docker exec -it u123_csvs2020-db_c mysql -uroot -pRubbishPassWord
 This will create a pre-configured database which can be used by the web application.
 
 **Webserver (nginx)**
+---
 
 After building the NGINX dockerfile you can use the following run-time command to get started:
 
@@ -137,6 +138,7 @@ the following capability was only used during the stracing process
 ```
 
 **Stracing**
+---
 
 in the run command:
 ```
