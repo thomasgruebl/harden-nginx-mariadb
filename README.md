@@ -4,7 +4,7 @@
 ---
 
 ```
-docker network create --subnet=198.51.100.0/24 u123/csvs2020_n
+docker network create --subnet=xxx.xxx.xxx.xxx/xx u123/csvs2020_n
 ```
 
 **Database (MariaDB)**
@@ -25,7 +25,7 @@ The run command for the dbserver
 ```
 docker run -d \
   --net u123/csvs2020_n \
-  --ip 198.51.100.3 \
+  --ip xxx.xxx.xxx.xxx \
   --hostname db.cyber.test \
   --memory="300m" \
   --memory-swap="1g" \
@@ -94,7 +94,7 @@ The run command for the webserver
 ```
 docker run -d \
   --net u123/csvs2020_n \
-  --ip 198.51.100.10 \
+  --ip xxx.xxx.xxx.xxx \
   --hostname www.cyber.test \
   --memory="100m" \
   --memory-swap="300m" \
@@ -105,7 +105,7 @@ docker run -d \
   --tmpfs /var/run/php-fpm \
   --tmpfs /run \
   -v WEBSERVER_VOLUME:/var/log/webserver/:ro \
-  --add-host db.cyber.test:198.51.100.3 \
+  --add-host db.cyber.test:xxx.xxx.xxx.xxx \
   -p 3333:80 \
   --cap-drop=ALL \
   --cap-add=CHOWN --cap-add=SETGID --cap-add=SETUID --cap-add=NET_BIND_SERVICE \
