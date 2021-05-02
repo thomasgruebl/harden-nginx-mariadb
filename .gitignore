@@ -1,21 +1,22 @@
-# the composer package lock file and install directory
-# Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
-# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
-# /composer.lock
-/fuel/vendor
+# Executables
+builds/webserver-stripped/strip-image
+builds/dbserver-stripped/strip-image
+builds/dbserver/output_h/
+builds/webserver/output_h/
+builds/webserver/webfiles/
+builds/webserver-stripped/webfiles/
 
-# the fuelphp document
-/docs/
+# Outputs
+builds/runs/webserver/output_h/
+builds/runs/dbserver/output_h/
 
-# you may install these packages with `oil package`.
-# http://fuelphp.com/docs/packages/oil/package.html
-# /fuel/packages/auth/
-# /fuel/packages/email/
-# /fuel/packages/oil/
-# /fuel/packages/orm/
-# /fuel/packages/parser/
+# Tmp files
+builds/runs/webserver/tmp/
+builds/runs/dbserver/tmp/
 
-# dynamically generated files
-/fuel/app/logs/*/*/*
-/fuel/app/cache/*/*
-/fuel/app/config/crypt.php
+# docker_dbserver.pp
+*.pp
+
+# sel-notes
+builds/runs/dbserver/sel-notes
+builds/runs/webserver/sel-notes

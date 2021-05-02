@@ -1,0 +1,31 @@
+policy_module(docker_webserver,1.0.0)
+# derived from:
+#   Original material from James Dorgan
+#   https://opensource.com/business/15/3/docker-security-tuning
+
+# This template interface creates the docker_webserver_t type as a
+# type which can be run as a docker container.
+virt_sandbox_domain_template(docker_webserver);
+
+require {
+	type http_port_t;
+	type node_t;
+	type mysqld_port_t;
+}
+
+################# put audit2allow rules in here ##############
+
+allow docker_webserver_t http_port_t:tcp_socket name_bind;
+allow docker_webserver_t node_t:tcp_socket node_bind;
+allow docker_webserver_t self:capability { chown net_bind_service setgid setuid };
+allow docker_webserver_t self:tcp_socket { bind create listen setopt };
+#added the following commands after testing the webserver functionality
+allow docker_webserver_t mysqld_port_t:tcp_socket name_connect;
+allow docker_webserver_t self:tcp_socket { accept connect getattr shutdown };
+
+################# end audit2allow additions ##################
+
+# Permissive domains allow processes to not be blocked by SELinux
+# Remove this rule, when you are confident in the policy.
+#permissive docker_webserver_t;
+

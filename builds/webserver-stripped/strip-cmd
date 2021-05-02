@@ -1,0 +1,23 @@
+#!/bin/bash
+
+./strip-image  \
+  -i u123/csvs2020-web_i \
+  -p nginx \
+  -f /etc/passwd \
+  -f /etc/group \
+  -f '/lib/*/libnss*' \
+  -f /bin/ls \
+  -f /bin/cat \
+  -f /bin/sh \
+  -f /bin/mkdir \
+  -f /bin/ps \
+  -f /var/run \
+  -f /var/log/nginx \
+  -f /usr/sbin/php-fpm \
+  -f /etc/nginx/nginx.conf \
+  -f /etc/php-fpm.conf \
+  -f /etc/php-fpm.d/*.conf \
+  -f /usr/share/nginx/html \
+  -f /docker-entrypoint.sh \
+  -d Dockerfile \
+  -t u123/csvs2020-web_i_stripped

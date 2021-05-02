@@ -1,0 +1,11 @@
+#!/bin/bash
+
+./strip-image  \
+  -i u123/csvs2020-db_i \
+  -p mariadb-server \
+  -f /tmp \
+  -f /var/lib/mysqld \
+  -f /run/mysqld \
+  -f /var \
+  -d Dockerfile \
+  -t u123/csvs2020-db_i_stripped
